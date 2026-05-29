@@ -653,6 +653,516 @@ app.get("/success", (req, res) => {
     res.send(html);
 });
 
+app.get("/terms", (req, res) => {
+    const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Terms and Conditions</title>
+        <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --card-base-color: #FF9F1C;
+                --text-light: #FFFCF2;
+                --text-dark: #590D22;
+                --accent-teal: #2EC4B6;
+                --bg-mint: #8DE0CC;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                background-color: var(--bg-mint);
+                color: var(--text-dark);
+                padding: 40px 20px;
+                line-height: 1.6;
+                position: relative;
+            }
+
+            /* Vintage Film Grain Effect */
+            body::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06' style='mix-blend-mode: multiply;'/%3E%3C/svg%3E");
+                pointer-events: none;
+                z-index: 10;
+            }
+
+            .legal-container {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: var(--text-light);
+                border: 4px solid var(--text-dark);
+                box-shadow: 8px 10px 0px var(--text-dark);
+                border-radius: 24px;
+                padding: 48px;
+                position: relative;
+                z-index: 20;
+            }
+
+            h1, h2 {
+                font-family: 'Caprasimo', serif;
+                color: var(--card-base-color);
+                text-shadow: 2px 2px 0px var(--text-dark);
+                margin-top: 32px;
+                margin-bottom: 16px;
+                letter-spacing: 0.5px;
+            }
+
+            h1 {
+                font-size: 36px;
+                margin-top: 0;
+                text-align: center;
+                border-bottom: 4px solid var(--text-dark);
+                padding-bottom: 24px;
+                margin-bottom: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 16px;
+            }
+
+            ul {
+                margin-bottom: 16px;
+                padding-left: 24px;
+            }
+
+            li {
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 8px;
+            }
+
+            li::marker {
+                color: var(--accent-teal);
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .back-btn {
+                display: block;
+                width: max-content;
+                margin: 0 auto 32px auto;
+                background-color: var(--accent-teal);
+                color: var(--text-light);
+                border: 3px solid var(--text-dark);
+                padding: 12px 24px;
+                border-radius: 30px;
+                font-family: 'Caprasimo', serif;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 3px 4px 0px var(--text-dark);
+                text-decoration: none;
+                text-align: center;
+                position: relative;
+                z-index: 20;
+            }
+
+            .back-btn:active {
+                transform: translate(2px, 3px);
+                box-shadow: 0px 0px 0px var(--text-dark);
+            }
+
+            @media (max-width: 600px) {
+                .legal-container {
+                    padding: 24px;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="javascript:history.back()" class="back-btn">← Go Back</a>
+        
+        <div class="legal-container">
+            <h1>Terms and Conditions</h1>
+            
+            <p>By accessing this webpage, you are agreeing to be bound by these Terms and Conditions (“Terms") in a legally binding agreement between us (“Merchant” or “us” or “we” or “our”) and the User (“you” or “your”). Please read these Terms carefully before accessing or using the Website. If you do not agree to the Terms, you may not access the Platform.</p>
+            <p>We reserve the right to update and change the Terms and Conditions by posting updates and changes to the Platform. You are advised to check the Terms and Conditions from time to time for any updates or changes that may impact you. If at any point such amendments are not acceptable to you, we advise you to cease using the Platform at such time.</p>
+
+            <h2>Eligibility</h2>
+            <p>You hereby represent and warrant that you have the right, power, and authority to agree to the Terms, to become a party to a legally binding agreement and to perform your obligations here under.</p>
+
+            <h2>Definitions</h2>
+            <ul>
+                <li><strong>“Payment Instrument”</strong> includes credit card, debit card, bank account, prepaid payment instrument, Unified Payment Interface (UPI), Immediate Payment Service (IMPS) or any other methods of payments which shall be developed or added or deployed by banks and financial institutions from time to time.</li>
+                <li><strong>“Platform”</strong> refers to the website or platform where the Merchant offers its products or services and where the Transaction may be initiated.</li>
+                <li><strong>“Transaction”</strong> shall refer to the order or request placed by the User with the Merchant to purchase the products and/or services listed on the Platform by paying the Transaction Amount to the Merchant;</li>
+                <li><strong>“Transaction Amount”</strong> shall mean the amount paid by the User in connection with a Transaction;</li>
+                <li><strong>“User/Users”</strong> means any person availing the products and/or services offered on the Platform;</li>
+                <li><strong>“Website”</strong> shall mean the platform or the mobile application.</li>
+            </ul>
+
+            <h2>Merchant's Rights</h2>
+            <p>You agree that we may collect, store, and share the information provided by you in order to deliver the products and/or services availed by you on our Platform and/or contact you in relation to the same.</p>
+
+            <h2>Your Responsibilities</h2>
+            <p>You agree to provide us with true, complete and up-to-date information about yourself as may be required for the purpose of completing the Transactions. This information includes but is not limited to the personal details such as name, email address, phone number, delivery address, age, and gender (or any other information that we may deem necessary for us to fulfil the Transaction) as well as the accurate payment information required for the transaction.</p>
+
+            <h2>Prohibited Actions</h2>
+            <p>You may not access or use the Platform for any purpose other than that for which we make the Platform available. The Platform may not be used in connection with any commercial endeavors except those that are specifically endorsed or approved by us. As a User of the Platform, you agree not to:</p>
+            <ul>
+                <li>Systematically retrieve data or other content from the Platform to create or compile, directly or indirectly, a collection, compilation, database, or directory without written permission from us.</li>
+                <li>Make any unauthorized use of the Platform, including collecting usernames and/or email addresses of users by electronic or other means for the purpose of sending unsolicited email, or creating user accounts by automated means or under false pretenses.</li>
+                <li>Circumvent, disable, or otherwise interfere with security-related features of the Platform.</li>
+                <li>Trick, defraud, or mislead us and other users, especially in any attempt to learn sensitive account information such as user passwords.</li>
+                <li>Make improper use of our support services or submit false reports of abuse or misconduct.</li>
+                <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
+                <li>Interfere with, disrupt, or create an undue burden on the Platform or the networks or services connected to the Platform.</li>
+                <li>Attempt to impersonate another user or person or use the username of another user.</li>
+                <li>Use any information obtained from the Platform in order to harass, abuse, or harm another person.</li>
+                <li>Use the Platform as part of any effort to compete with us or otherwise use the Platform and/or the Content for any revenue-generating endeavor or commercial enterprise.</li>
+                <li>Decipher, decompile, disassemble, or reverse engineer any of the software comprising or in any way making up a part of the Platform.</li>
+                <li>Attempt to bypass any measures of the Platform designed to prevent or restrict access to the Platform, or any portion of the Platform.</li>
+                <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Platform to you.</li>
+                <li>Copy or adapt the Platform's software, including but not limited to Flash, PHP, HTML, JavaScript, or other code.</li>
+                <li>Upload or transmit (or attempt to upload or to transmit) viruses, Trojan horses, or other material, including excessive use of capital letters and spamming.</li>
+                <li>Disparage, tarnish, or otherwise harm, in our opinion, us and/or the Platform.</li>
+                <li>Use the Platform in a manner inconsistent with any applicable laws or regulations.</li>
+            </ul>
+
+            <h2>Limitation of Liability</h2>
+            <p>The User agrees that the only recourse that the User has in the event of receiving a defective product and/or deficiency in service or a product and/or service which does not match the provided description is to initiate the refund process which will be subject to the terms for refund under this agreement. We hereby expressly disclaim any liability to them for any losses.</p>
+            <p>The User shall indemnify and hold harmless the Merchant and its affiliates, agents and representatives from and against any and all claims, demands, causes of action, obligations, liabilities, losses, damages, injuries, costs and expenses incurred or sustained by reason of or arising out of any breach or alleged breach of any of the terms herein by the User.</p>
+
+            <h2>Guidelines for Reviews</h2>
+            <p>We may provide you areas on the Platform to leave reviews or ratings. When posting a review, you must comply with the following criteria:</p>
+            <ul>
+                <li>You should have firsthand experience with the person/entity being reviewed.</li>
+                <li>Your reviews should not contain offensive profanity, or abusive, racist, offensive, or hate language.</li>
+                <li>Your reviews should not contain discriminatory references based on religion, race, gender, national origin, age, marital status, sexual orientation, or disability.</li>
+                <li>Your reviews should not contain references to illegal activity.</li>
+                <li>You should not be affiliated with competitors if posting negative reviews.</li>
+                <li>You should not make any conclusions as to the legality of conduct.</li>
+                <li>You may not post any false or misleading statements.</li>
+                <li>You may not organize a campaign encouraging others to post reviews, whether positive or negative.</li>
+            </ul>
+            <p>We may accept, reject, or remove reviews in our sole discretion. We have absolutely no obligation to screen reviews or to delete reviews, even if anyone considers reviews objectionable or inaccurate. Reviews are not endorsed by us, and do not necessarily represent our opinions or the views of any of our affiliates or partners. We do not assume liability for any review or for any claims, liabilities, or losses resulting from any review. By posting a review, you hereby grant to us a perpetual, non-exclusive, worldwide, royalty-free, fully paid, assignable, and sublicensable right and license to reproduce, modify, translate, transmit by any means, display, perform and/or distribute all content relating to reviews.</p>
+
+            <h2>Governing Laws & Dispute Resolution</h2>
+            <p>Please note that these terms of use, their subject matter and their formation, are governed by the laws of India. You and we both agree that the courts of India will have exclusive jurisdiction over any dispute.</p>
+            <p>Any dispute or claim arising out of or in connection with or relating to these Terms or their breach, termination or invalidity hereof (“Dispute”) shall be referred to and finally resolved by arbitration in Bengaluru in accordance with the Arbitration and Conciliation Act, 1996 for the time being in force. Within 30 (thirty) days of the issue of a notice of Dispute, the parties shall mutually agree on the appointment of a sole arbitrator. If such mutual agreement is not arrived at within the aforesaid 30 (thirty) days' period, the parties shall appoint such sole arbitrator in accordance with the Arbitration and Conciliation Act, 1996. The seat of arbitration shall be India and the arbitration proceedings shall be conducted in the English language. The parties shall keep the arbitration confidential and not disclose to any person, other than those necessary to the proceedings, any information, transcripts or award unless required to do so by law. The decision of the arbitrator shall be final and binding on all the parties hereto. The parties hereto agree that their consent for resolution of Dispute through arbitration shall not preclude or restrain either of them from seeking suitable injunctive relief in appropriate circumstances from courts in Bengaluru. The cost of arbitration shall be borne in the manner and by a party as determined by the arbitrators. In the meantime, each party shall bear its own cost for the arbitration which shall be reimbursed as per the directions in the arbitral award.</p>
+
+            <h2>Grievance Redressal</h2>
+            <p>You agree that if you have any question or complaint with regard to any product and/or service availed on our Platform, or pertaining to the Transaction, including but not limited to, double debit of Transaction Amount, fraudulent Transaction, unauthorized Transaction, refund requests, etc., you may reach out here.</p>
+
+            <h2>Disclaimer</h2>
+            <ul>
+                <li>That upon initiating a Transaction, you as a User are entering into a legally binding and enforceable contract with us to purchase the products and/or services, and you shall pay the price as listed on the Platform through legitimate and legal sources of funds and through the accepted Payment Instruments.</li>
+                <li>That you shall provide accurate payment details to the secure payment system for making purchase on the Platform. The information provided by you may be utilized or shared with any third party if required in relation to fraud verifications or by law, regulation or court order.</li>
+                <li>We expressly disclaim all liabilities that may arise as a consequence of any unauthorized use of a User’s Payment Instrument.</li>
+                <li>That all payments undertaken by you are subject to your own risk and volition. We shall not be liable for any loss or damage occurred to you arising directly or indirectly due to the decline of authorization for any Transaction, malfunction, errors and/or unscrupulous activities.</li>
+                <li>If you receive a User identification code, order ID, password or any other piece of information as part of our security procedures, you must treat such information as confidential. You must not disclose it to any third party.</li>
+                <li>The content on our Platform is provided for general information only. The information provided does not to amount to advice from us in any manner and should not be relied upon.</li>
+                <li>Where our Platform contains links to other websites and resources provided by third parties, these links are provided for your information only. Such links should not be interpreted as approval by us of those linked websites or information you may obtain from them.</li>
+                <li>This Platform includes information and materials uploaded by other Users of the Platform. You understand that such information and materials have not been verified or approved by us. The views expressed by other Users on our Platform do not represent our views or values.</li>
+                <li>We do not guarantee that our Platform will be secure or free from bugs or viruses. You are responsible for configuring your information technology, computer programs and platform to access our Platform. You must use your own virus protection software.</li>
+            </ul>
+        </div>
+    </body>
+    </html>
+    `;
+    
+    res.send(html);
+});
+
+app.get("/refund", (req, res) => {
+    const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Refund & Cancellation Policy</title>
+        <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            :root {
+                --card-base-color: #FF9F1C;
+                --text-light: #FFFCF2;
+                --text-dark: #590D22;
+                --accent-teal: #2EC4B6;
+                --bg-mint: #8DE0CC;
+            }
+
+            body {
+                font-family: 'DM Sans', sans-serif;
+                background-color: var(--bg-mint);
+                color: var(--text-dark);
+                padding: 40px 20px;
+                line-height: 1.6;
+                position: relative;
+            }
+
+            /* Vintage Film Grain Effect */
+            body::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06' style='mix-blend-mode: multiply;'/%3E%3C/svg%3E");
+                pointer-events: none;
+                z-index: 10;
+            }
+
+            .legal-container {
+                max-width: 800px;
+                margin: 0 auto;
+                background-color: var(--text-light);
+                border: 4px solid var(--text-dark);
+                box-shadow: 8px 10px 0px var(--text-dark);
+                border-radius: 24px;
+                padding: 48px;
+                position: relative;
+                z-index: 20;
+            }
+
+            h1 {
+                font-family: 'Caprasimo', serif;
+                color: var(--card-base-color);
+                text-shadow: 2px 2px 0px var(--text-dark);
+                font-size: 36px;
+                margin-top: 0;
+                text-align: center;
+                border-bottom: 4px solid var(--text-dark);
+                padding-bottom: 24px;
+                margin-bottom: 32px;
+                letter-spacing: 0.5px;
+            }
+
+            p {
+                font-size: 15px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
+
+            a.email-link {
+                color: var(--accent-teal);
+                font-weight: 700;
+                text-decoration: none;
+                border-bottom: 2px solid var(--accent-teal);
+                transition: color 0.2s ease;
+            }
+
+            a.email-link:hover {
+                color: var(--card-base-color);
+                border-bottom-color: var(--card-base-color);
+            }
+
+            .back-btn {
+                display: block;
+                width: max-content;
+                margin: 0 auto 32px auto;
+                background-color: var(--accent-teal);
+                color: var(--text-light);
+                border: 3px solid var(--text-dark);
+                padding: 12px 24px;
+                border-radius: 30px;
+                font-family: 'Caprasimo', serif;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 3px 4px 0px var(--text-dark);
+                text-decoration: none;
+                text-align: center;
+                position: relative;
+                z-index: 20;
+            }
+
+            .back-btn:active {
+                transform: translate(2px, 3px);
+                box-shadow: 0px 0px 0px var(--text-dark);
+            }
+
+            @media (max-width: 600px) {
+                .legal-container {
+                    padding: 24px;
+                }
+                h1 {
+                    font-size: 28px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <a href="javascript:history.back()" class="back-btn">← Go Back</a>
+        
+        <div class="legal-container">
+            <h1>Refund & Cancellation</h1>
+            
+            <p>Upon completing a Transaction, you are entering into a legally binding and enforceable agreement with us to purchase the product and/or service. After this point the User may cancel the Transaction unless it has been specifically provided for on the Platform. In which case, the cancellation will be subject to the terms mentioned on the Platform. We shall retain the discretion in approving any cancellation requests and we may ask for additional details before approving any requests.</p>
+            
+            <p>Once you have received the product and/or service, the only event where you can request for a replacement or a return and a refund is if the product and/or service does not match the description as mentioned on the Platform.</p>
+            
+            <p>Any request for refund must be submitted within three days from the date of the Transaction or such number of days prescribed on the Platform, which shall in no event be less than three days. A User may submit a claim for a refund for a purchase made, by raising a ticket here or contacting us on <a class="email-link" href="mailto:seller+561eb3132cf14ac8a2cb67cd01619598@instamojo.com">seller+561eb3132cf14ac8a2cb67cd01619598@instamojo.com</a> and providing a clear and specific reason for the refund request, including the exact terms that have been violated, along with any proof, if required.</p>
+            
+            <p>Whether a refund will be provided will be determined by us, and we may ask for additional details before approving any requests.</p>
+        </div>
+    </body>
+    </html>
+    `;
+    
+    res.send(html);
+});
+
+// ==========================================
+// 1. PRIVACY POLICY ROUTE
+// ==========================================
+app.get("/privacy", (req, res) => {
+    const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Privacy Policy</title>
+        <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+        <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            :root { --card-base-color: #FF9F1C; --text-light: #FFFCF2; --text-dark: #590D22; --accent-teal: #2EC4B6; --bg-mint: #8DE0CC; }
+            body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-mint); color: var(--text-dark); padding: 40px 20px; line-height: 1.6; position: relative; }
+            body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06' style='mix-blend-mode: multiply;'/%3E%3C/svg%3E"); pointer-events: none; z-index: 10; }
+            .legal-container { max-width: 800px; margin: 0 auto; background-color: var(--text-light); border: 4px solid var(--text-dark); box-shadow: 8px 10px 0px var(--text-dark); border-radius: 24px; padding: 48px; position: relative; z-index: 20; }
+            h1, h2 { font-family: 'Caprasimo', serif; color: var(--card-base-color); text-shadow: 2px 2px 0px var(--text-dark); letter-spacing: 0.5px; }
+            h1 { font-size: 36px; margin-top: 0; text-align: center; border-bottom: 4px solid var(--text-dark); padding-bottom: 24px; margin-bottom: 32px; }
+            h2 { font-size: 24px; margin-top: 32px; margin-bottom: 16px; }
+            p { font-size: 15px; font-weight: 500; margin-bottom: 16px; }
+            ul { margin-bottom: 16px; padding-left: 24px; }
+            li { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+            li::marker { color: var(--accent-teal); font-weight: bold; font-size: 18px; }
+            .back-btn { display: block; width: max-content; margin: 0 auto 32px auto; background-color: var(--accent-teal); color: var(--text-light); border: 3px solid var(--text-dark); padding: 12px 24px; border-radius: 30px; font-family: 'Caprasimo', serif; font-size: 16px; cursor: pointer; box-shadow: 3px 4px 0px var(--text-dark); text-decoration: none; text-align: center; position: relative; z-index: 20; }
+            .back-btn:active { transform: translate(2px, 3px); box-shadow: 0px 0px 0px var(--text-dark); }
+            @media (max-width: 600px) { .legal-container { padding: 24px; } h1 { font-size: 28px; } }
+        </style>
+    </head>
+    <body>
+        <a href="javascript:history.back()" class="back-btn">← Go Back</a>
+        <div class="legal-container">
+            <h1>Privacy Policy</h1>
+            <p>This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from our VIP Priority Chat service (the "Site").</p>
+            
+            <h2>Personal Information We Collect</h2>
+            <p>When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, when you make a purchase or attempt to make a purchase through the Site, we collect certain information from you, including your Instagram Username/ID, billing address, and payment information (processed securely via Cashfree).</p>
+            
+            <h2>How Do We Use Your Personal Information?</h2>
+            <p>We use the Order Information that we collect generally to fulfill any orders placed through the Site (including processing your payment information and unlocking your priority chat access). Additionally, we use this Order Information to:</p>
+            <ul>
+                <li>Communicate with you via Instagram Direct Messages.</li>
+                <li>Screen our orders for potential risk or fraud.</li>
+            </ul>
+            
+            <h2>Sharing Your Personal Information</h2>
+            <p>We share your Personal Information with third parties to help us use your Personal Information, as described above. We use Cashfree as our payment gateway; you can read more about how Cashfree uses your Personal Information here: https://www.cashfree.com/privacypolicy/.</p>
+            <p>Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.</p>
+            
+            <h2>Data Retention</h2>
+            <p>When you place an order through the Site, we will maintain your Order Information for our records unless and until you ask us to delete this information.</p>
+            
+            <h2>Changes</h2>
+            <p>We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons.</p>
+        </div>
+    </body>
+    </html>
+    `;
+    res.send(html);
+});
+
+// ==========================================
+// 2. CONTACT US ROUTE
+// ==========================================
+app.get("/contact", (req, res) => {
+    const html = `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Details</title>
+        <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+        <style>
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            :root { --card-base-color: #FF9F1C; --text-light: #FFFCF2; --text-dark: #590D22; --accent-teal: #2EC4B6; --bg-mint: #8DE0CC; }
+            body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-mint); color: var(--text-dark); padding: 40px 20px; line-height: 1.6; position: relative; }
+            body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06' style='mix-blend-mode: multiply;'/%3E%3C/svg%3E"); pointer-events: none; z-index: 10; }
+            .legal-container { max-width: 650px; margin: 0 auto; background-color: var(--text-light); border: 4px solid var(--text-dark); box-shadow: 8px 10px 0px var(--text-dark); border-radius: 24px; padding: 48px; position: relative; z-index: 20; text-align: center; }
+            h1 { font-family: 'Caprasimo', serif; color: var(--card-base-color); text-shadow: 2px 2px 0px var(--text-dark); letter-spacing: 0.5px; font-size: 36px; margin-top: 0; border-bottom: 4px solid var(--text-dark); padding-bottom: 24px; margin-bottom: 24px; }
+            
+            p.intro-text { font-size: 16px; font-weight: 500; margin-bottom: 16px; text-align: left; }
+            
+            .info-block { margin-top: 24px; margin-bottom: 24px; text-align: left; background-color: rgba(46, 196, 182, 0.1); padding: 24px; border-radius: 16px; border: 2px dashed var(--text-dark); }
+            h3 { font-family: 'Caprasimo', serif; color: var(--text-dark); font-size: 20px; margin-bottom: 12px; }
+            p { font-size: 15px; font-weight: 500; margin-bottom: 0; }
+            
+            ul { margin-top: 12px; margin-bottom: 0; padding-left: 24px; text-align: left; }
+            li { font-size: 15px; font-weight: 500; margin-bottom: 8px; }
+            li::marker { color: var(--accent-teal); font-weight: bold; font-size: 18px; }
+
+            a.email-link { color: var(--accent-teal); font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--accent-teal); transition: color 0.2s ease; display: inline-block; margin-top: 8px; font-size: 16px; }
+            a.email-link:hover { color: var(--card-base-color); border-bottom-color: var(--card-base-color); }
+            
+            .back-btn { display: block; width: max-content; margin: 0 auto 32px auto; background-color: var(--accent-teal); color: var(--text-light); border: 3px solid var(--text-dark); padding: 12px 24px; border-radius: 30px; font-family: 'Caprasimo', serif; font-size: 16px; cursor: pointer; box-shadow: 3px 4px 0px var(--text-dark); text-decoration: none; position: relative; z-index: 20; }
+            .back-btn:active { transform: translate(2px, 3px); box-shadow: 0px 0px 0px var(--text-dark); }
+            
+            @media (max-width: 600px) { .legal-container { padding: 24px; } h1 { font-size: 28px; } }
+        </style>
+    </head>
+    <body>
+        <a href="javascript:history.back()" class="back-btn">← Go Back</a>
+        <div class="legal-container">
+            <h1>Contact Details</h1>
+            
+            <p class="intro-text">Got a question, concern, or need assistance with your transaction? We are here to help!</p>
+            <p class="intro-text">Whether you need help tracking your exclusive image vault allocation, have questions about your scheduled talk timing, or are experiencing technical difficulties, please don't hesitate to reach out.</p>
+
+            <div class="info-block">
+                <h3>Direct Communication Terminal</h3>
+                <p>For all inquiries, please email us directly at:<br>
+                <a class="email-link" href="mailto:siyashah.contact@gmail.com">siyashah.contact@gmail.com</a></p>
+            </div>
+
+            <div class="info-block">
+                <h3>Response Times</h3>
+                <p>Our support team monitors this inbox closely. We strive to reply to all non-urgent queries within 24-48 business hours. If you are reaching out regarding a payment failure or an immediate scheduling conflict, please use the subject line <strong>"URGENT: [Your Ticket ID]"</strong> to ensure priority routing.</p>
+            </div>
+
+            <div class="info-block">
+                <h3>What to Include</h3>
+                <p>To help us serve you faster, please include the following in your email:</p>
+                <ul>
+                    <li>The exact name and email address used during the checkout process.</li>
+                    <li>Your unique Ticket ID (e.g., SEC-MNL-XXXXXX) if you received one.</li>
+                    <li>A clear description of your issue or request.</li>
+                    <li>Any relevant screenshots of error messages or payment confirmations.</li>
+                </ul>
+            </div>
+            
+        </div>
+    </body>
+    </html>
+    `;
+    res.send(html);
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
