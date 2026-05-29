@@ -131,24 +131,28 @@ app.post("/create-payment", async (req, res) => {
     const request = {
       order_amount: 10.0,
       order_currency: "INR",
-      order_id: `order_${userId}_${Date.now()}`, // Attach the IG ID to the order!
+      order_id: `order_${userId}_${Date.now()}`, 
       customer_details: {
         customer_id: userId,
-        // Cashfree requires a phone number. If you don't have it from IG, use a dummy one.
         customer_phone: "9999999999",
         customer_name: "Instagram User",
       },
       order_meta: {
-        // Where Cashfree sends the user after successful payment
-        return_url: `https://yourwebsite.com/success?order_id={order_id}`,
+        return_url: `https://ig-vip-bot.onrender.com/success?order_id={order_id}`, // Updated to your domain
       },
     };
 
     const response = await cashfree.PGCreateOrder(request);
 
-    // Send the Cashfree payment session ID back to your website to open the checkout
+    // Send the session ID back to your webpage
     res.json({ payment_session_id: response.data.payment_session_id });
-  } catch (error) {}
+  } catch (error) {
+    // 1. This prints the exact error into your Render Logs!
+    console.error("Cashfree Order Creation Failed:", error.response?.data || error.message || error);
+
+    // 2. This alerts the frontend so the button unlocks instead of hanging
+    res.status(500).json({ error: "Failed to initialize payment session" });
+  }
 });
 
 app.post("/cashfree-webhook", async (req, res) => {
